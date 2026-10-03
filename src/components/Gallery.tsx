@@ -24,6 +24,7 @@ function Gallery() {
   return (
     <section id="gallery" className="gallery section">
       <div className="container">
+        {/* PHOTOS */}
         <motion.div
           className="gallery__intro"
           initial={{ opacity: 0, y: 20 }}
@@ -31,15 +32,15 @@ function Gallery() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="eyebrow">Gallery</span>
+          <span className="eyebrow">Photos</span>
 
           <h2 className="gallery__title">
             Moments from Brookwell.
           </h2>
 
           <p className="gallery__lead">
-            Drift through the field below, or click any photograph to look
-            closer.
+            Drift through moments captured around the Brookwell Harmony School
+            community, or click any photograph to look closer.
           </p>
         </motion.div>
 
@@ -60,6 +61,45 @@ function Gallery() {
           />
         </motion.div>
 
+        {/* VIDEOS */}
+        <motion.div
+          id="videos"
+          className="gallery__videos"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{
+            duration: 0.9,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+          <span className="eyebrow">Videos</span>
+
+          <h2 className="gallery__title">
+            See Brookwell in motion.
+          </h2>
+
+          <p className="gallery__lead">
+            School videos and highlights will appear here as they are shared
+            by Brookwell Harmony School.
+          </p>
+
+          <div className="gallery__videos-placeholder">
+            <div className="gallery__videos-icon" aria-hidden="true">
+              ▶
+            </div>
+
+            <div>
+              <h3>Videos coming soon</h3>
+              <p>
+                This space is ready for Brookwell’s official school videos,
+                events and highlights.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* QUOTE */}
         <motion.div
           className="gallery__quote"
           initial={{ opacity: 0, y: 30 }}

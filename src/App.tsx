@@ -11,6 +11,7 @@ import Admissions from './components/Admissions';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import Parents from './components/Parents';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <WhyBrookwell />
         <LifeAtBrookwell />
         <Gallery />
+        <Parents />
         <Testimonials />
         <Admissions />
         <Contact />

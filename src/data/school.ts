@@ -14,14 +14,63 @@ export const school = {
 
 export const nav = [
   { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Values', href: '#values' },
-  { label: 'Academics', href: '#academics' },
-  { label: 'Why Us', href: '#why-brookwell' },
-  { label: 'Life at Brookwell', href: '#life' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Admissions', href: '#admissions' },
-  { label: 'Contact', href: '#contact' },
+
+  {
+    label: 'About Brookwell',
+    dropdown: [
+      { label: 'Our Story', href: '#about' },
+      { label: 'Vision, Mission & Values', href: '#values' },
+      { label: 'Leadership & Staff', href: '#leadership' },
+      { label: 'School Facilities', href: '#facilities' },
+      { label: 'Safeguarding & Child Protection', href: '#safeguarding' },
+    ],
+  },
+
+  {
+    label: 'Learning',
+    dropdown: [
+      { label: 'Early Years', href: '#early-years' },
+      { label: 'Primary School', href: '#primary' },
+      { label: 'Junior School', href: '#junior' },
+      { label: 'Curriculum', href: '#curriculum' },
+    ],
+  },
+
+  {
+    label: 'School Life',
+    dropdown: [
+      { label: 'Sports & Games', href: '#sports' },
+      { label: 'Arts, Music & Drama', href: '#arts' },
+      { label: 'Educational Trips & Outdoor Learning', href: '#trips' },
+      { label: 'Photos', href: '#gallery' },
+      { label: 'Videos', href: '#videos' },
+    ],
+  },
+
+  {
+    label: 'Admissions',
+    dropdown: [
+      { label: 'Why Choose Brookwell?', href: '#why-brookwell' },
+      { label: 'Book a School Visit', href: '#book-visit' },
+      { label: 'How to Apply', href: '#apply' },
+      { label: 'Admission Requirements', href: '#requirements' },
+      { label: 'Admissions FAQs', href: '#admissions-faqs' },
+    ],
+  },
+
+  {
+    label: 'Parents',
+    dropdown: [
+      { label: 'Parent Information', href: '#parent-information' },
+      { label: 'Notices & Newsletters', href: '#notices' },
+      { label: 'Forms & Downloads', href: '#downloads' },
+      { label: 'Parent Contact & Support', href: '#parent-support' },
+    ],
+  },
+
+  { label: 'News & Events', href: '#news-events' },
+
+  { label: 'Contact Us', href: '#contact' },
 ];
 
 export const values = [
