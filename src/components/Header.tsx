@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { nav, school } from '../data/school';
 import './Header.css';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48);
@@ -18,31 +20,57 @@ function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const target = document.querySelector(href);
+const scrollToSection = (href: string) => {
+  setMenuOpen(false);
+  setOpenDropdown(null);
+  setMobileDropdown(null);
 
-    setMenuOpen(false);
-    setOpenDropdown(null);
-    setMobileDropdown(null);
+  // Home page
+  if (href === '#home') {
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
 
-    if (target) {
-      const headerOffset = 90;
+  // Sections that belong to the About Brookwell page
+  const aboutSections = [
+    '#about',
+    '#story',
+    '#values',
+    '#leadership',
+    '#facilities',
+    '#safeguarding',
+  ];
 
-      const targetPosition =
-        target.getBoundingClientRect().top +
-        window.scrollY -
-        headerOffset;
+  if (aboutSections.includes(href)) {
+    navigate(`/about${href === '#about' ? '#story' : href}`);
+    return;
+  }
 
-      requestAnimationFrame(() => {
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth',
-        });
-      });
+  // Sections currently on the home page
+  const target = document.querySelector(href);
 
-      window.history.replaceState(null, '', href);
-    }
-  };
+  if (target) {
+    const headerOffset = 90;
+    const targetPosition =
+      target.getBoundingClientRect().top +
+      window.scrollY -
+      headerOffset;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth',
+    });
+
+    window.history.replaceState(null, '', href);
+    return;
+  }
+
+  // If a section isn't built yet, go to the home page
+  navigate('/');
+};
+
+
 
   return (
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>

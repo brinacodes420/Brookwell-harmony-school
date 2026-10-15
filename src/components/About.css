@@ -152,3 +152,39 @@
     line-height: 1.75;
   }
 }
+
+.about__discover {
+  margin-top: 24px;
+}
+
+.about__discover:hover {
+  color: #74568e;
+  border-color: #74568e;
+}
+
+.about__discover span {
+  display: inline-block;
+  font-size: 1.15em;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.about__discover:hover span {
+  transform: translateX(4px);
+}
+
+.about__discover:focus-visible {
+  outline: 2px solid #74568e;
+  outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__discover,
+  .about__discover span {
+    transition: none;
+  }
+
+  .about__discover:hover span {
+    transform: none;
+  }
+}

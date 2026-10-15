@@ -1,3 +1,6 @@
+
+import { Routes, Route } from 'react-router-dom';
+
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,6 +15,25 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import Parents from './components/Parents';
+import AboutBrookwellPage from './components/AboutBrookwellPage';
+
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <About />
+      <Values />
+      <Academics />
+      <WhyBrookwell />
+      <LifeAtBrookwell />
+      <Gallery />
+      <Parents />
+      <Testimonials />
+      <Admissions />
+      <Contact />
+    </>
+  );
+}
 
 function App() {
   return (
@@ -19,20 +41,14 @@ function App() {
       <a href="#main" className="skip-link">
         Skip to content
       </a>
+
       <Header />
-      <main id="main">
-        <Hero />
-        <About />
-        <Values />
-        <Academics />
-        <WhyBrookwell />
-        <LifeAtBrookwell />
-        <Gallery />
-        <Parents />
-        <Testimonials />
-        <Admissions />
-        <Contact />
-      </main>
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutBrookwellPage />} />
+      </Routes>
+
       <Footer />
       <WhatsAppButton />
     </>

@@ -1,0 +1,122 @@
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.shiny-cta {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+
+  padding: 0.9rem 1.8rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  color: #fff;
+  background:
+    linear-gradient(#080a10, #080a10) padding-box,
+    conic-gradient(
+  from var(--gradient-angle),
+  #080a10 0%,
+  #080a10 58%,
+  #075dff 68%,
+  #00aaff 74%,
+  #ffffff 77%,
+  #1685ff 81%,
+  #080a10 91%,
+  #080a10 100%
+) border-box;
+
+  box-shadow: inset 0 0 0 1px #222735;
+  font: 500 1rem/1.2 Inter, sans-serif;
+
+  transition:
+    box-shadow 300ms ease,
+    transform 300ms ease;
+  animation: border-spin 4s linear infinite;
+}
+
+.shiny-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background-image: radial-gradient(
+    rgba(150, 190, 255, 0.5) 0.7px,
+    transparent 0.8px
+  );
+  background-size: 7px 7px;
+  opacity: 0.22;
+}
+
+.shiny-cta::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  z-index: -1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    110deg,
+    transparent 42%,
+    rgba(70, 135, 255, 0.45) 50%,
+    transparent 58%
+  );
+  transform: translateX(-65%) rotate(0deg);
+  transition: transform 700ms ease;
+}
+
+.shiny-cta span {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.shiny-cta:hover,
+.shiny-cta:focus-visible {
+  box-shadow:
+    inset 0 0 0 1px #438cff,
+    0 0 12px rgba(40, 123, 255, 0.75),
+    0 0 28px rgba(40, 123, 255, 0.55),
+    0 0 48px rgba(40, 123, 255, 0.3);
+}
+
+.shiny-cta:hover::after,
+.shiny-cta:focus-visible::after {
+  transform: translateX(35%);
+}
+
+.shiny-cta:active {
+  transform: translateY(1px);
+}
+
+.shiny-cta:focus-visible {
+  outline: 2px solid #8bbcff;
+  outline-offset: 4px;
+}
+
+@keyframes border-spin {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shiny-cta {
+    animation: none;
+    transition: none;
+  }
+
+  .shiny-cta::after {
+    transition: none;
+  }
+}

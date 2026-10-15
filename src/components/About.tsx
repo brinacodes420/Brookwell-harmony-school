@@ -1,11 +1,15 @@
+
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import './About.css';
+import { ShinyButton } from './ShinyButton';
 
 function About() {
+  const navigate = useNavigate();
+
   return (
     <section id="about" className="about section">
       <div className="container about__grid">
-
         <motion.div
           className="about__image-wrap"
           initial={{ opacity: 0, x: -30 }}
@@ -43,17 +47,26 @@ function About() {
             Building futures.
           </h2>
 
-          <p className="about__lead">
-            Where every child shines.
-          </p>
+          <p className="about__lead">Where every child shines.</p>
 
           <p className="about__body">
             Brookwell Harmony School brings together learning, talent and
             opportunity in an environment where every child can discover and
             develop their potential.
           </p>
-        </motion.div>
 
+         
+      <ShinyButton
+        className="about__discover"
+        onClick={() => {
+          navigate('/about');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      >
+        Discover Brookwell <span aria-hidden="true">→</span>
+      </ShinyButton>
+
+        </motion.div>
       </div>
     </section>
   );
