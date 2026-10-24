@@ -25,6 +25,13 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+
+  background: rgba(21, 15, 31, 0.28);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(251, 249, 246, 0.14);
+  border-radius: 18px;
+  padding: 0.8rem 1.2rem;
 }
 
 /* --------------------------------

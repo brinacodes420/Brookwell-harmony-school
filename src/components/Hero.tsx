@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './Hero.css';
 import CircularText from './CircularText';
+import MorphSlider from "./MorphSlider";
+import { galleryImages } from '../data/school';
 
 function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -18,16 +20,26 @@ function Hero() {
   return (
     <section id="home" ref={ref} className="hero">
       <motion.div
-        className="hero__image-wrap"
-        style={{ scale: imageScale, y: imageY }}
-      >
-        <img
-          src="/assets/images/hero-parade.jpg"
-          alt="Brookwell Harmony School learners marching together in celebration at a school event"
-          className="hero__image"
-        />
-        <div className="hero__overlay" aria-hidden="true" />
-      </motion.div>
+  className="hero__image-wrap"
+  style={{ scale: imageScale, y: imageY }}
+>
+  <MorphSlider
+  items={galleryImages.map((image) => ({
+    image: image.src,
+    caption: '',
+  }))}
+  transition="melt"
+  duration={1.2}
+  autoplay
+  autoplayDelay={4}
+  loop
+  showCaptions={false}
+  showControls={false}
+  showIndicators={false}
+  radius={0}
+/>
+  <div className="hero__overlay" aria-hidden="true" />
+</motion.div>
 
         <CircularText
     text="BROOKWELL HARMONY • NANYUKI • KENYA • "

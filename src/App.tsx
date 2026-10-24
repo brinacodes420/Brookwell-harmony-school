@@ -38,10 +38,6 @@ function HomePage() {
 function App() {
   return (
     <>
-      <a href="#main" className="skip-link">
-        Skip to content
-      </a>
-
       <Header />
 
       <Routes>
