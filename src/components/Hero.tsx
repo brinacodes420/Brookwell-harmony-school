@@ -100,8 +100,7 @@ function Hero() {
         transition={{ duration: 1, delay: 1 }}
         aria-hidden="true"
       >
-        <span className="hero__scroll-line" />
-        <span>Scroll</span>
+        
       </motion.div>
     </section>
   );
