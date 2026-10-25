@@ -765,7 +765,7 @@ export default function MorphSlider({
 
       {showIndicators && (
         <div className="morph-slider-indicators" role="tablist" aria-label="Slides">
-          {items.map((item, i) => (
+          {items.map((_, i) => (
             <button
               key={i}
               type="button"
